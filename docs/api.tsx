@@ -45,6 +45,13 @@ export const ApiDocs: React.FunctionComponent = () => {
       description: ""
     },
     {
+      name: 'trackWidth',
+      require: false,
+      default: 4,
+      type: 'number',
+      description: ""
+    },
+    {
       name: "disabled",
       required: false,
       default: "",

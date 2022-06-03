@@ -9,7 +9,7 @@ import { ApiDocs } from "./api";
 export const OnControlFinishedExample: React.FunctionComponent = () => {
   const MyApp: React.FunctionComponent = () => {
     const [value1, setValue1] = useState(20);
-    const [endingValue, setEndingValue] = useState();
+    const [endingValue, setEndingValue] = useState(0);
 
     return (
       <div>

@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mnkhouri/react-circular-slider.git"
+    "url": "git+https://github.com/monecchi/react-circular-slider.git"
   },
   "author": "Marc Khouri <github@khouri.ca>",
   "license": "MIT",
@@ -34,7 +34,6 @@
     "url": "https://github.com/mnkhouri/react-circular-slider/issues"
   },
   "homepage": "https://github.com/mnkhouri/react-circular-slider#readme",
-  "dependencies": {},
   "devDependencies": {
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
