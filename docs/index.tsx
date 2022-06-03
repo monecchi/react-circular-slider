@@ -44,62 +44,73 @@ const HeadlineExample: React.FunctionComponent = () => {
     const [value1, setValue1] = useState(20);
     const [value2, setValue2] = useState(60);
 
+    const handleSetValue1 = (
+      value: number, ev: React.TouchEvent<SVGSVGElement>
+        | TouchEvent
+        | React.MouseEvent<SVGSVGElement>
+        | MouseEvent
+    ) => {
+      ev.preventDefault()
+      ev.stopPropagation()
+      setValue1(value)
+    }
+
     return (
       <>
-      <svg width="0" height="0">
-        <defs>
-          <linearGradient
-            id="progressTemp"
-            x1="0%"
-            y1="0%"
-            x2="100%"
-            y2="0%"
-            gradientTransform="rotate(0)"
-          >
-            <stop offset="0%" stopColor="#ff942a" stopOpacity="1" />
-            <stop offset="12.5%" stopColor="#ffbd7e" stopOpacity="1" />
-            <stop offset="25%" stopColor="#ffd8b5" stopOpacity="1" />
-            <stop offset="37.5%" stopColor="#ffebde" stopOpacity="0.75" />
-            <stop offset="50%" stopColor="#fff8ff" stopOpacity="0.5" />
-            <stop offset="62.5%" stopColor="#e6ebff" stopOpacity="0.75" />
-            <stop offset="75%" stopColor="#d6e2ff" stopOpacity="1" />
-            <stop offset="87.5%" stopColor="#ccdcff" stopOpacity="1" />
-            <stop offset="100%" stopColor="#ccdcff" stopOpacity="1" />
-          </linearGradient>
-        </defs>
-        <defs>
-          <linearGradient
-            id="tempgradient"
-            x1="100%"
-            x2="0%"
-            gradientTransform="rotate(90)"
-          >
-            <stop offset="0%" stopColor="#ff942a" stopOpacity="1" />
-            <stop offset="12.5%" stopColor="#ffbd7e" stopOpacity="1" />
-            <stop offset="25%" stopColor="#ffd8b5" stopOpacity="1" />
-            <stop offset="37.5%" stopColor="#ffebde" stopOpacity="0.75" />
-            <stop offset="50%" stopColor="#fff8ff" stopOpacity="0.5" />
-            <stop offset="62.5%" stopColor="#e6ebff" stopOpacity="0.75" />
-            <stop offset="75%" stopColor="#d6e2ff" stopOpacity="1" />
-            <stop offset="87.5%" stopColor="#ccdcff" stopOpacity="1" />
-            <stop offset="100%" stopColor="#ccdcff" stopOpacity="1" />
-          </linearGradient>
-        </defs>
-      </svg>
-      <CircularSlider
-        handle1={{
-          value: value1,
-          onChange: v => setValue1(v)
-        }}
-        handle2={{
-          value: value2,
-          onChange: v => setValue2(v)
-        }}
-        arcColor="url(#tempgradient)"
-        startAngle={40}
-        endAngle={320}
-        trackWidth={8}
-      />
+        <svg width="0" height="0">
+          <defs>
+            <linearGradient
+              id="progressTemp"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="0%"
+              gradientTransform="rotate(0)"
+            >
+              <stop offset="0%" stopColor="#ff942a" stopOpacity="1" />
+              <stop offset="12.5%" stopColor="#ffbd7e" stopOpacity="1" />
+              <stop offset="25%" stopColor="#ffd8b5" stopOpacity="1" />
+              <stop offset="37.5%" stopColor="#ffebde" stopOpacity="0.75" />
+              <stop offset="50%" stopColor="#fff8ff" stopOpacity="0.5" />
+              <stop offset="62.5%" stopColor="#e6ebff" stopOpacity="0.75" />
+              <stop offset="75%" stopColor="#d6e2ff" stopOpacity="1" />
+              <stop offset="87.5%" stopColor="#ccdcff" stopOpacity="1" />
+              <stop offset="100%" stopColor="#ccdcff" stopOpacity="1" />
+            </linearGradient>
+          </defs>
+          <defs>
+            <linearGradient
+              id="tempgradient"
+              x1="100%"
+              x2="0%"
+              gradientTransform="rotate(90)"
+            >
+              <stop offset="0%" stopColor="#ff942a" stopOpacity="1" />
+              <stop offset="12.5%" stopColor="#ffbd7e" stopOpacity="1" />
+              <stop offset="25%" stopColor="#ffd8b5" stopOpacity="1" />
+              <stop offset="37.5%" stopColor="#ffebde" stopOpacity="0.75" />
+              <stop offset="50%" stopColor="#fff8ff" stopOpacity="0.5" />
+              <stop offset="62.5%" stopColor="#e6ebff" stopOpacity="0.75" />
+              <stop offset="75%" stopColor="#d6e2ff" stopOpacity="1" />
+              <stop offset="87.5%" stopColor="#ccdcff" stopOpacity="1" />
+              <stop offset="100%" stopColor="#ccdcff" stopOpacity="1" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <CircularSlider
+          handle1={{
+            value: value1,
+            onChange: handleSetValue1
+          }}
+          handle2={{
+            value: value2,
+            onChange: v => handleSetValue1
+          }}
+          arcColor="url(#tempgradient)"
+          startAngle={40}
+          endAngle={320}
+          trackWidth={8}
+        />
       </>
     );
   };

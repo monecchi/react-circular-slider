@@ -18,11 +18,11 @@ type Props = {
   handleSize: number;
   handle1: {
     value: number;
-    onChange?: (value: number) => void;
+    onChange?: (value: number, ev: React.TouchEvent<SVGSVGElement> | TouchEvent | React.MouseEvent<SVGSVGElement> | MouseEvent) => void;
   };
   handle2?: {
     value: number;
-    onChange: (value: number) => void;
+    onChange: (value: number, ev: React.TouchEvent<SVGSVGElement> | TouchEvent | React.MouseEvent<SVGSVGElement> | MouseEvent) => void;
   };
   onControlFinished?: () => void;
   disabled?: boolean;
@@ -140,9 +140,9 @@ export class CircularSlider extends React.Component<Props> {
         // make sure we're closer to handle 2 -- i.e. controlling handle2
         Math.abs(value - handle2.value) < Math.abs(value - handle1.value)
       ) {
-        handle2.onChange(value);
+        handle2.onChange(value, ev);
       } else {
-        handle1.onChange(value);
+        handle1.onChange(value, ev);
       }
     }
   };

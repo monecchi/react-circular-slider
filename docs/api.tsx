@@ -107,20 +107,20 @@ export const ApiDocs: React.FunctionComponent = () => {
     {
       name: "handle1",
       required: false,
-      default: "",
+      default: "null",
       type: {
         value: "number",
-        onChange: "(v: number) => void"
+        onChange: "(v: number, ev) => void"
       },
       description: ""
     },
     {
       name: "handle2",
       required: false,
-      default: "",
+      default: "null",
       type: {
         value: "number",
-        onChange: "(v: number) => void"
+        onChange: "(v: number, e) => void"
       },
       description: ""
     }
